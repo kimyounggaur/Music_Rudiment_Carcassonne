@@ -18,6 +18,16 @@
 - 화면 그림 두 가지: '음악 마을'(기본, 나무 테이블 위 풀밭 타일) · '카드'(인쇄용 카드 색)
 - 설치형(PWA): 한 번 열면 인터넷 없이도 실행
 
+## 바로 해 보기
+
+**https://kimyounggaur.github.io/Music_Rudiment_Carcassonne/**
+
+- 안드로이드 태블릿·크롬북·PC 크롬: 첫 화면의 '앱으로 설치' 버튼 (또는 주소창의 설치 아이콘)
+- 아이패드·아이폰: Safari로 열고 공유 버튼 → '홈 화면에 추가'
+- 한 번 열어 두면 와이파이 없이도 실행됩니다. 새 버전은 다음에 인터넷이 될 때 자동으로 받습니다.
+
+`main`에 `webapp/`이 바뀌어 올라오면 GitHub Actions가 자동 테스트 → 설치형 빌드 → 위 주소로 배포합니다 ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)).
+
 ## 빠른 시작
 
 ```bash
@@ -28,7 +38,7 @@ npm test           # 자동 테스트 (규칙 엔진·컴퓨터·퍼즐)
 npm run build:web  # 설치형 버전 → webapp/dist-web/
 ```
 
-`webapp/dist-web/` 폴더를 Netlify·GitHub Pages·Vercel 같은 정적 호스팅에 올리면 태블릿에 앱으로 설치할 수 있습니다.
+`webapp/dist-web/` 폴더는 Netlify·Vercel 같은 다른 정적 호스팅에도 그대로 올릴 수 있습니다.
 
 ## 참고
 
