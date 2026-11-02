@@ -20,13 +20,17 @@
 
 ## 바로 해 보기
 
-**https://kimyounggaur.github.io/Music_Rudiment_Carcassonne/**
+**https://kimyounggaur.github.io/Music_Rudiment_Carcassonne/** (GitHub Pages)
+
+같은 앱이 Vercel에도 올라가 있습니다: https://webapp-phi-mauve.vercel.app/
 
 - 안드로이드 태블릿·크롬북·PC 크롬: 첫 화면의 '앱으로 설치' 버튼 (또는 주소창의 설치 아이콘)
 - 아이패드·아이폰: Safari로 열고 공유 버튼 → '홈 화면에 추가'
 - 한 번 열어 두면 와이파이 없이도 실행됩니다. 새 버전은 다음에 인터넷이 될 때 자동으로 받습니다.
 
-`main`에 `webapp/`이 바뀌어 올라오면 GitHub Actions가 자동 테스트 → 설치형 빌드 → 위 주소로 배포합니다 ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)).
+`main`에 push하면 두 곳 모두 자동으로 갱신됩니다.
+- GitHub Pages: GitHub Actions가 자동 테스트 → 설치형 빌드 → 배포 ([`.github/workflows/pages.yml`](.github/workflows/pages.yml))
+- Vercel: 저장소와 연결되어 push마다 빌드·배포 (설정: [`vercel.json`](vercel.json), [`webapp/vercel.json`](webapp/vercel.json)). 다른 브랜치에 push하면 미리보기 주소가 따로 생깁니다.
 
 ## 빠른 시작
 
