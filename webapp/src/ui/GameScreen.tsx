@@ -3,7 +3,7 @@ import { game, kindName } from '../game/controller';
 import * as R from '../engine/engine';
 import { Board } from './Board';
 import { AI_LABEL } from '../engine/ai';
-import { Icon, LogItem, MeepleIcon, TileSvg, fmtBeats, useGame, visibleLog } from './common';
+import { Icon, LogItem, MeepleIcon, RulebookButton, TileSvg, fmtBeats, useGame, visibleLog } from './common';
 
 function shownScores() {
   const g = game;
@@ -42,7 +42,7 @@ function TopBar() {
       <div className="tools">
         <button className="icon-btn" id="logBtn" type="button" aria-label="기록 보기" onClick={() => g.open({ type: 'log' })}><Icon.list /></button>
         <button className="icon-btn" id="soundBtn" type="button" aria-pressed={g.O.sound} aria-label={g.O.sound ? '소리 끄기' : '소리 켜기'} onClick={() => g.setOpt('sound', !g.O.sound)}>{g.O.sound ? <Icon.soundOn /> : <Icon.soundOff />}</button>
-        <button className="icon-btn" id="rulesBtn" type="button" aria-label="규칙 보기" onClick={() => g.open({ type: 'rules' })}><Icon.help /></button>
+        <RulebookButton id="rulebookBtn" />
         <button className="icon-btn" id="menuBtn" type="button" aria-label="메뉴" onClick={() => g.open({ type: 'menu' })}><Icon.menu /></button>
       </div>
     </header>

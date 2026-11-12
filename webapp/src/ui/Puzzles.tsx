@@ -4,7 +4,7 @@ import * as R from '../engine/engine';
 import * as PZ from '../game/puzzle';
 import type { LevelId } from '../engine/engine';
 import { Board } from './Board';
-import { Eqn, Icon, TileSvg, fmtBeats, useGame } from './common';
+import { Eqn, Icon, RulebookButton, TileSvg, fmtBeats, useGame } from './common';
 
 import { TYPE_LABEL } from './PuzzleCard';
 const DRILL_HELP: Record<LevelId, string> = {
@@ -42,7 +42,10 @@ export function PuzzleList() {
   return (
     <main className="plist">
       <header className="pl-head">
-        <button type="button" className="btn small ghost pl-back" onClick={() => g.toSetup()}><Icon.back />처음 화면</button>
+        <div className="pl-nav">
+          <button type="button" className="btn small ghost pl-back" onClick={() => g.toSetup()}><Icon.back />처음 화면</button>
+          <RulebookButton id="rulebookBtn" labeled />
+        </div>
         <div className="pl-title">
           <p className="eyebrow">혼자 연습 · 실제 게임 규칙 그대로</p>
           <h1>학습 퍼즐</h1>
@@ -238,6 +241,7 @@ export function PuzzleScreen() {
             <button type="button" className="icon-btn txt" aria-pressed={g.O.beats} aria-label={g.O.beats ? '타일 박자 숫자 숨기기' : '타일 박자 숫자 보기'} title="타일 박자 숫자" onClick={() => g.setOpt('beats', !g.O.beats)}>1½</button>
           )}
           <button type="button" className="icon-btn" aria-pressed={g.O.sound} aria-label={g.O.sound ? '소리 끄기' : '소리 켜기'} onClick={() => g.setOpt('sound', !g.O.sound)}>{g.O.sound ? <Icon.soundOn /> : <Icon.soundOff />}</button>
+          <RulebookButton id="rulebookBtn" />
         </div>
       </header>
       <div className="stage solo"><Board /></div>

@@ -56,7 +56,20 @@ export const Icon = {
   bulb: () => <I d={<><path d="M9.5 18h5M10.5 21h3" /><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.1v.1h5v-.1c0-.8.4-1.5 1.1-2.1A6 6 0 0 0 12 3z" /></>} />,
   puzzle: () => <I d={<path d="M5 8h3.2a2.3 2.3 0 1 1 4.6 0H16v3.2a2.3 2.3 0 1 1 0 4.6V19H12.8a2.3 2.3 0 1 0-4.6 0H5v-3.2a2.3 2.3 0 1 0 0-4.6z" />} />,
   star: () => <I fill d={<path d="M12 3.2l2.6 5.5 6 .8-4.4 4.1 1.1 5.9L12 16.6l-5.3 2.9 1.1-5.9-4.4-4.1 6-.8z" />} />,
+  book: () => <I d={<><path d="M12 6.6C10.3 5.3 7.7 4.7 4 4.9v12.4c3.7-.2 6.3.4 8 1.7 1.7-1.3 4.3-1.9 8-1.7V4.9c-3.7-.2-6.3.4-8 1.7z" /><path d="M12 6.6V19" /></>} />,
+  zoom: () => <I d={<><circle cx="11" cy="11" r="6.5" /><path d="M20 20l-4.2-4.2" /><path d="M11 8.5v5M8.5 11h5" /></>} />,
+  alert: () => <I d={<><path d="M12 4.5l9 15.5H3z" /><path d="M12 10v4.5" /><path d="M12 17.3v.2" /></>} />,
+  fwd: () => <I d={<path d="M9 5l7 7-7 7" />} />,
 };
+
+/** 위쪽 막대의 룰북 버튼 — 어느 화면에서든 같은 모양으로 룰북을 연다 */
+export function RulebookButton({ id, labeled = false }: { id?: string; labeled?: boolean }) {
+  return (
+    <button type="button" id={id} className={`icon-btn rb-btn${labeled ? ' labeled' : ''}`} aria-label="룰북 열기" title="룰북 · 그림으로 보는 규칙" onClick={() => game.open({ type: 'rulebook' })}>
+      <Icon.book /><span className="rb-btn-lbl">룰북</span>
+    </button>
+  );
+}
 
 export const fmtBeats = ART.fmtBeats;
 

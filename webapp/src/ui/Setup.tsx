@@ -5,7 +5,7 @@ import type { LevelId, SetId, PlayerCfg } from '../engine/engine';
 import * as ART from '../art/tiles';
 import * as SKIN from '../art/skin';
 import * as SND from '../game/audio';
-import { Icon, MeepleIcon, Svg, TileSvg, useGame } from './common';
+import { Icon, MeepleIcon, RulebookButton, Svg, TileSvg, useGame } from './common';
 import { AiPicker } from './AiPicker';
 import { SkinPicker } from './SkinPicker';
 import * as VG from '../art/village';
@@ -101,6 +101,9 @@ export function Setup() {
 
   return (
     <main className="setup">
+      <header className="setup-top">
+        <RulebookButton id="rulebookBtn" labeled />
+      </header>
       <section className="hero" aria-labelledby="heroTitle">
         <p className="eyebrow">카르카손 응용 음악 보드게임 · 웹앱 2단계</p>
         <h1 className="logo" id="heroTitle">리듬마을</h1>

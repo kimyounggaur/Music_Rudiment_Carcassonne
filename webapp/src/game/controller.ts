@@ -9,14 +9,10 @@ import * as SND from './audio';
 import { TUT_STEPS, TUT_HANDS, TUT_PLAYERS, TUT_AI_MOVE, type TutStep } from './tutorial';
 import * as PZ from './puzzle';
 import * as SKIN from '../art/skin';
+import { COLORS } from './colors';
 import type { Skin } from '../art/skin';
 
-export const COLORS = [
-  { hex: '#D7263D', ui: '#D7263D', name: '빨강' },
-  { hex: '#1B6FE0', ui: '#1B6FE0', name: '파랑' },
-  { hex: '#178F55', ui: '#178F55', name: '초록' },
-  { hex: '#2B2540', ui: '#7A70A8', name: '검정' },
-];
+export { COLORS };
 
 export interface Opts { quiz: boolean; beats: boolean; hint: boolean; cover: boolean; sound: boolean; fast: boolean; ai: AiLevel }
 export const DEFAULT_OPTS: Opts = { quiz: true, beats: true, hint: false, cover: true, sound: true, fast: false, ai: 'normal' };
@@ -25,7 +21,7 @@ export type Phase = 'none' | 'over' | 'ai' | 'cover' | 'nomove' | 'place' | 'act
 export interface Preview { x: number; y: number; r: number; rots: number[] }
 export type Modal =
   | { type: 'quiz'; ev: MeasureEvent; closer: number; choices: number[]; picked: number | null; hl: number; resolve: () => void; onAnswer: () => void }
-  | { type: 'end' } | { type: 'rules' } | { type: 'menu'; confirm?: boolean } | { type: 'log' } | { type: 'tutorialDone' } | { type: 'puzzleDone' };
+  | { type: 'end' } | { type: 'rulebook'; ch?: string } | { type: 'menu'; confirm?: boolean } | { type: 'log' } | { type: 'tutorialDone' } | { type: 'puzzleDone' };
 export interface Toast { id: number; head: string; tone: 'ok' | 'bad' | 'plain'; ev?: MeasureEvent; sub: string }
 export interface Fx { id: number; x: number; y: number; text: string; color: string }
 export interface ViewApi { fit(animate: boolean): void; ensureVisible(x: number, y: number): void; cellVisible(x: number, y: number): boolean; zoomBy(k: number): void }
